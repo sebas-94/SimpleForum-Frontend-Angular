@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 // Models
 import {User} from './models/user';
 // Services
@@ -9,7 +9,7 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, DoCheck{
   public title: string;
   public identity: User;
   public token: string;
@@ -23,6 +23,10 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     console.log(this.identity);
     console.log(this.token);
+  }
+
+  ngDoCheck(){
+    this.identity = this._userService.getIdentity();
   }
 
 }
