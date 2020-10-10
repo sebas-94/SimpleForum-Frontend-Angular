@@ -71,5 +71,10 @@ export class UserService {
     return this.token;
   }
 
+  logout(){
+    localStorage.clear();
+    this.identity = null;
+  }
+
 
 }
