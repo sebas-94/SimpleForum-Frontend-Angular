@@ -74,6 +74,7 @@ export class UserService {
   logout(){
     localStorage.clear();
     this.identity = null;
+    this.token = null;    
   }
 
 

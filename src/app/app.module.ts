@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 // Forms
 import { FormsModule } from '@angular/forms';
+// Upload
+import {AngularFileUploaderModule} from 'angular-file-uploader';
 // Http
 import {HttpClientModule} from '@angular/common/http';
 // Componets
@@ -11,6 +13,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -18,13 +21,15 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFileUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

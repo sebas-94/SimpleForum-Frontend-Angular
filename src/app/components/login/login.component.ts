@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           // Save user
           this.identity = response.user;
           // Save in localStorage
-          this.persistUser();
+          localStorage.setItem('identity', JSON.stringify(this.identity));
           // Get Token
           this.getToken(form);
         } else {
@@ -56,8 +56,12 @@ export class LoginComponent implements OnInit {
       response => {
         if (response.token) {
           this.token = response.token;
+          // Save in localStorage
+          localStorage.setItem('token', this.token);
+          // Reset form
           form.reset();
           //this.status = 'success';
+          // Redirect
           this._router.navigate(['/inicio']);
         } else {
           this.status = 'error';
@@ -70,7 +74,7 @@ export class LoginComponent implements OnInit {
   }
 
   persistUser() {
-    localStorage.setItem('identity', JSON.stringify(this.identity))
+   
   }
 
 }
