@@ -39,6 +39,7 @@ export class UserEditComponent implements OnInit {
       maxSixe: "50",
       uploadAPI: {
         url: this.url + "upload-avatar",
+        method: "POST",
         headers: {
           "Authorization": this.token
         }
@@ -46,7 +47,9 @@ export class UserEditComponent implements OnInit {
       theme: "attachPin",
       hideProgressBar: false,
       hideResetBtn: true,
-      attachPinText: 'Upload Avatar'
+      replaceTexts: {
+        attachPinBtn: 'Sube tu avatar'
+      }
     };
   }
 
@@ -54,9 +57,10 @@ export class UserEditComponent implements OnInit {
   }
 
   avatarUpload(data){
-    let data_obj = JSON.parse(data.response);
-    this.user.image = data_obj.user.image;
-    console.log(this.user);
+    let data_obj = data.body.user;
+    
+    this.user.image = data_obj.image;
+    console.log(this.user);    
   }
 
   onSubmit(form) {
