@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// PANEL MODULE
+import {PanelModule} from './panel/components/panel.module';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 // Forms
@@ -22,9 +24,10 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
   ],
   imports: [
+    PanelModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

@@ -35,19 +35,12 @@
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" type="text" name="email" #email="ngModel" [(ngModel)]="user.email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-            <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">Email no válido</small>
-        </div>
-
-        <div class="form-group">
             <label for="avatar">Avatar</label>
             <angular-file-uploader [config]="afuConfig" (ApiResponse)="avatarUpload($event)">
             </angular-file-uploader>
         </div>
 
-        <input type="submit" value="{{page_title}}" class="btn btn-success" [disabled]="editForm.invalid" />
+        <input type="submit" value="Actualizar" class="btn btn-success" [disabled]="editForm.invalid" />
     </form>
 
 </div>

@@ -71,10 +71,21 @@ export class UserService {
     return this.token;
   }
 
-  logout(){
+  update(user): Observable<any> {
+    // Convert object to JSON
+    let params = JSON.stringify(user);
+    // Set headers
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', this.getToken());
+    // Ajax petition
+    return this._http.put(this.url + 'update', params, { headers });
+  }
+
+  logout() {
     localStorage.clear();
     this.identity = null;
-    this.token = null;    
+    this.token = null;
   }
 
 
