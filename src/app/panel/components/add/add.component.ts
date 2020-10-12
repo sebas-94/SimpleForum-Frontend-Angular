@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+// Router
+import { Router, ActivatedRoute } from '@angular/router';
+// Models
+import { Topic } from '../../../models/topic';
+// Services
+import { UserService } from '../../../services/user.service';
+import { TopicService } from '../../../services/topic.service';
 
 @Component({
   selector: 'app-add',
@@ -7,9 +14,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  public page_title: string;
+  public topic: Topic;
+  public identity;
+  public token;
+  public status;
+
+  constructor(private _route: ActivatedRoute,
+    private _router: Router,
+    private _userService: UserService,
+    private _topicService: TopicService) {
+
+    this.page_title = 'Crear nuevo tema';
+    this.identity = this._userService.getIdentity();
+    this.token = this._userService.getToken();
+    this.topic = new Topic('', '', '', '', '', '', this.identity, null);
+  }
 
   ngOnInit(): void {
+    console.log(this._topicService.test());
+  }
+
+  onSubmit(form) {
+    this._topicService.addTopic(this.token, this.topic).subscribe(
+      response => {
+        if (response.topic) {
+          this.status = "success";
+          this.topic = response.topic;
+          this._router.navigate(['/panel']);
+        } else {
+          this.status = 'error';
+        }
+      },
+      error => {
+        this.status = 'error';
+        console.log(error);
+      }
+    );
   }
 
 }
