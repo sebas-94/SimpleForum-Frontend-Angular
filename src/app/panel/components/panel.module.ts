@@ -6,6 +6,8 @@ import { AppRoutingModule } from './panel-routing.module';
 import { FormsModule } from '@angular/forms';
 // Http
 import { HttpClientModule } from '@angular/common/http';
+// AngularMoment
+import {MomentModule} from 'ngx-moment';
 // Panel components
 import { MainComponent } from './main/main.component';
 import { AddComponent } from './add/add.component';
@@ -17,13 +19,14 @@ import { ListComponent } from './list/list.component';
     MainComponent,
     AddComponent,
     EditComponent,
-    ListComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MomentModule
   ],
   providers: []
 })

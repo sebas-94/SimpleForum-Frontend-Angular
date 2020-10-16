@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // PANEL MODULE
-import {PanelModule} from './panel/components/panel.module';
+import { PanelModule } from './panel/components/panel.module';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 // Forms
 import { FormsModule } from '@angular/forms';
 // Upload
-import {AngularFileUploaderModule} from 'angular-file-uploader';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 // Http
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+// AngularMoment
+import { MomentModule } from 'ngx-moment';
 // Componets
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -24,7 +26,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent,
+    UserEditComponent
   ],
   imports: [
     PanelModule,
@@ -32,7 +34,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

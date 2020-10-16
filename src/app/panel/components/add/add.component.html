@@ -2,14 +2,14 @@
     <h3>{{page_title}}</h3>
     <hr>
 
-    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+    <div class="alert alert-success col-md-12 mt-3" *ngIf="status == 'success'">
         Tema creado correctamente
     </div>
     <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
        El tema no se ha podido crear
     </div>
 
-    <form class="col-md-5 ml-0 pl-0" #addTopicForm="ngForm" (ngSubmit)="onSubmit(addTopicForm)">
+    <form class="col-md-12 ml-0 pl-0" #addTopicForm="ngForm" (ngSubmit)="onSubmit(addTopicForm)">
         <div class="form-group">
             <label for="title">Título</label>
             <input class="form-control" type="text" name="title" #title="ngModel" [(ngModel)]="topic.title" required>

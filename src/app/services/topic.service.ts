@@ -31,6 +31,40 @@ export class TopicService {
       .set('Content-Type', 'application/json')
       .set('Authorization', token);
     // Ajax petition
-    return this._http.post(this.url + 'topic', params, { headers });
+    return this._http.post(this.url + 'topic/', params, { headers });
   }
+
+  getTopicsByUser(userId): Observable<any> {
+    // Set headers
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+    // Ajax petition
+    return this._http.get(this.url + 'user-topics/' + userId, { headers });
+  }
+
+  getTopic(id): Observable<any> {
+    // Ajax petition
+    return this._http.get(this.url + 'topic/' + id);
+  }
+
+  update(token, id, topic): Observable<any> {
+    // Convert object to JSON
+    let params = JSON.stringify(topic);
+    // Set headers
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', token);
+    // Ajax petition
+    return this._http.put(this.url + 'topic/' + id, params, { headers });
+  }
+
+  delete(token, id): Observable<any> {
+    // Set headers
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', token);
+    // Ajax petition
+    return this._http.delete(this.url + 'topic/' + id, { headers });
+  }
+
 }
