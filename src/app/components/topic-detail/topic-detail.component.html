@@ -27,6 +27,22 @@
         <h3>Comentarios</h3>
         <hr>
 
+        <div class="alert alert-success mt-3" *ngIf="status == 'success'">
+            El comentario se ha añadido correctamente
+        </div>
+
+        <div class="alert alert-danger mt-3" *ngIf="status == 'error'">
+            El comentario no se ha podido añadir
+        </div>
+
+        <div class="alert alert-success mt-3" *ngIf="status == 'delete_success'">
+            El comentario se ha borrado correctamente
+        </div>
+
+        <div class="alert alert-danger mt-3" *ngIf="status == 'delete_error'">
+            El comentario no se ha podido borrar
+        </div>
+
         <form #formComment="ngForm" (ngSubmit)="onSubmit(formComment)" *ngIf="identity">
             <div class="form-group">
                 <label for="content">Contenido</label>
@@ -37,5 +53,27 @@
             </div>
             <input type="submit" class="btn btn-success" value="Comentar" [disabled]="formComment.invalid" />
         </form>
+
+        <hr>
+
+        <ul class="list-group list-comments mb-5">
+            <li class="list-group-item comment-item" *ngFor="let comment of topic.comments">
+                <div class="avatar_mask float-left mr-3">
+                    <img [src]="url+'avatar/'+identity.image" class="avatar-nav">
+                </div>
+                <span class="badge badge-primary ml-2">
+                    {{comment.user.name + ' ' + comment.user.surname}}
+                </span>
+                <span class="badge badge-light ml-2">
+                    {{comment.date | amLocale: 'es' | amTimeAgo}}
+                </span>
+                <span class="d-block">
+                    {{comment.content}}
+                </span>
+                <a (click)="deleteComment(comment._id)" class="btn btn-sm btn-danger float-rigth"
+                    *ngIf="identity._id == comment.user._id">Borrar</a>
+            </li>
+        </ul>
+
     </div>
 </div>
