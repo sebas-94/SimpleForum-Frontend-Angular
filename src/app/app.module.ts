@@ -12,12 +12,16 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { HttpClientModule } from '@angular/common/http';
 // AngularMoment
 import { MomentModule } from 'ngx-moment';
+// NgxHighlight
+import { HighlightJsModule } from 'ngx-highlight-js';
 // Componets
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { TopicsComponent } from './components/topics/topics.component';
+import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
 
 
 @NgModule({
@@ -26,7 +30,9 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
+    TopicsComponent,
+    TopicDetailComponent
   ],
   imports: [
     PanelModule,
@@ -35,7 +41,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     FormsModule,
     HttpClientModule,
     AngularFileUploaderModule,
-    MomentModule
+    MomentModule,
+    HighlightJsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
