@@ -82,6 +82,16 @@ export class UserService {
     return this._http.put(this.url + 'update', params, { headers });
   }
 
+  getUser(userId): Observable<any> {
+    // Ajax petition
+    return this._http.get(this.url + 'users/' + userId);
+  }
+
+  getUsers(): Observable<any> {
+    // Ajax petition
+    return this._http.get(this.url + 'users');
+  }
+
   logout() {
     localStorage.clear();
     this.identity = null;
