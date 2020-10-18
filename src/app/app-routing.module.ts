@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// Guard
+import { UserGuard } from './guard/user.guard';
 // Components
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -15,7 +17,7 @@ const routes: Routes = [
   { path: 'inicio', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegisterComponent },
-  { path: 'ajustes', component: UserEditComponent },
+  { path: 'ajustes', canActivate: [UserGuard], component: UserEditComponent },
   { path: 'temas', component: TopicsComponent },
   { path: 'temas/:page', component: TopicsComponent },
   { path: 'tema/:id', component: TopicDetailComponent },

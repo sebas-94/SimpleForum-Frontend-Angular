@@ -7,12 +7,13 @@ import { FormsModule } from '@angular/forms';
 // Http
 import { HttpClientModule } from '@angular/common/http';
 // AngularMoment
-import {MomentModule} from 'ngx-moment';
+import { MomentModule } from 'ngx-moment';
 // Panel components
 import { MainComponent } from './main/main.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
+
 
 @NgModule({
   declarations: [
