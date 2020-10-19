@@ -84,7 +84,7 @@ export class UserService {
 
   getUser(userId): Observable<any> {
     // Ajax petition
-    return this._http.get(this.url + 'users/' + userId);
+    return this._http.get(this.url + 'user/' + userId);
   }
 
   getUsers(): Observable<any> {

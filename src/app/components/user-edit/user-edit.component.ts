@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 // Services
 import { UserService } from '../../services/user.service';
-// Router
-//import { Router, ActivatedRoute } from '@angular/router';
 // Global
 import { global } from '../../services/global';
 
@@ -22,9 +20,7 @@ export class UserEditComponent implements OnInit {
   public afuConfig;
 
 
-  constructor(private _userService: UserService,
-    /*private _router: Router,
-    private _route: ActivatedRoute*/) {
+  constructor(private _userService: UserService) {
 
     this.page_title = 'Ajustes de usuario';
 
