@@ -31,8 +31,7 @@ export class TopicsComponent implements OnInit {
     this._route.params.subscribe(params => {
       let page = +params['page'];
       this.getTopics(page);
-    })
-
+    });
   }
 
   getTopics(page = 1) {
