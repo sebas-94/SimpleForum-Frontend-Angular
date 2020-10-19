@@ -45,7 +45,6 @@ export class ProfileComponent implements OnInit {
       response => {
         if (response.user) {
           this.user = response.user;
-          console.log(this.user);
         } else {
           console.log('redirección');
         }
@@ -61,7 +60,6 @@ export class ProfileComponent implements OnInit {
       response => {
         if (response.topics) {
           this.topics = response.topics;
-          console.log(this.topics);
         }
       },
       error => {
