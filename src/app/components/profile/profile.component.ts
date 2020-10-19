@@ -16,16 +16,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  public page_title: String;
   public user: User;
   public topics: Topic;
-  public identity;
-  public token;
   public url: string;
 
   constructor(private _userService: UserService,
     private _topicService: TopicService,
     private _router: Router,
     private _route: ActivatedRoute) {
+
+    this.page_title = "Perfil";
     this.url = global.url;
   }
 
@@ -38,7 +39,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  
+
   getUser(userId) {
     this._userService.getUser(userId).subscribe(
       response => {
@@ -55,7 +56,6 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-
   getTopics(userId) {
     this._topicService.getTopicsByUser(userId).subscribe(
       response => {
@@ -70,5 +70,5 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  
+
 }
